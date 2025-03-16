@@ -6,9 +6,15 @@ Model, Controlador, Servei i Repositori.
 L'objectiu es la gestio de vehicles i la realitzacio de compra-venta de cotxes.
 
 Tecnologies Utilitzades:
+
 Frontend: (HTML, CSS, Bootstrap, JavaScript)
+
 Backend: (Java, Spring Boot, PostgreSQL)
+
 Gestió de versions: (GitHub)
+
 Serveis web: (RESTful API)
+
 Servidor web: (Tomcat)
+
 Editor: IntelliJ IDEA
