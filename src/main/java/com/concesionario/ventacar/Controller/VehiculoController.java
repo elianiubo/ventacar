@@ -17,6 +17,17 @@ public class VehiculoController {
         this.vehiculoService = vehiculoService;
     }
 
+    @GetMapping("/buscar")
+    public List<Vehiculo> buscarVehiculos(
+            @RequestParam(required = false) String marca,
+            @RequestParam(required = false) String tipo,
+            @RequestParam(required = false) Integer min,
+            @RequestParam(required = false) Integer max) {
+        return vehiculoService.buscarVehiculos(marca, tipo, min, max);
+    }
+
+
+
     @GetMapping("/marca/{marca}")
     public List<Vehiculo> buscarPorMarca(@PathVariable String marca) {
         return vehiculoService.buscarPorMarca(marca);

@@ -26,4 +26,8 @@ public class VehiculoService {
         return vehiculoRepository.findByPrecioBetween(min, max);
     }
 
+    public List<Vehiculo> buscarVehiculos(String marca, String tipo, Integer min, Integer max) {
+        return vehiculoRepository.buscarVehiculos(marca, tipo, min, max);
+    }
+
 }
