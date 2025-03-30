@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +11,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
 </head>
+
 <body>
     <!-- Cabecera -->
     <header class="header">
         <div class="contenedor">
             <div class="barra">
                 <a href="index.html" class="header__logo">
-                    <img src="img/Ventacar_logo.png" alt="VentaCar">
+                    <img class="logo-top-page" src="img/Ventacar_logo.png" alt="VentaCar">
                 </a>
-                <nav class="navegacion">    
+                <nav class="navegacion">
                     <a class="navegacion__enlace navegacion__enlace--activo" href="index.html">Inicio</a>
                     <a class="navegacion__enlace" href="#">Coches</a>
                     <a class="navegacion__enlace" href="#">Contacto</a>
@@ -27,7 +30,7 @@
                     <a class="navegacion__enlace" href="#"><i class="fa-regular fa-circle-user"></i></a>
                 </nav>
             </div>
-        </div>  
+        </div>
     </header>
     <!-- Foto del banner -->
     <section class="banner">
@@ -36,24 +39,26 @@
     <!-- Selectores -->
     <div class="contenedor">
         <main class="busqueda">
-            <select class="desplegable">
-                <option value="" disabled selected>Selecciona una marca</option>
+            <select class="desplegable" id="marca">
+                <option value="">Selecciona una marca</option>
                 <option value="bmw">BMW</option>
                 <option value="audi">Audi</option>
                 <option value="mercedes">Mercedes</option>
                 <option value="ford">Ford</option>
                 <option value="toyota">Toyota</option>
-                <option value="hyundai">Hyundai</option>                                    
+                <option value="hyundai">Hyundai</option>
             </select>
-            <select class="desplegable">
-                <option value="" disabled selected>Selecciona el tipo de vehículo</option>
+
+            <select class="desplegable" id="tipo">
+                <option value="">Selecciona el tipo de vehículo</option>
                 <option value="4x4">4x4</option>
                 <option value="SUV">SUV</option>
                 <option value="berlina">Berlina</option>
                 <option value="turismo">Turismo</option>
             </select>
-            <select class="desplegable">
-                <option value="" disabled selected>Selecciona un rango de precios</option>
+
+            <select class="desplegable" id="precio">
+                <option value="">Selecciona un rango de precios</option>
                 <option value="0-10000">0€ - 10.000€</option>
                 <option value="10000-25000">10.000€ - 25.000€</option>
                 <option value="25000-50000">25.000€ - 50.000€</option>
@@ -61,62 +66,62 @@
             </select>
         </main>
     </div>
-    
+
     <!-- Botón de ver resultados -->
     <div class="contenedor">
         <section class="boton-busqueda">
-            <button class="boton">Ver resultados</button>
+            <button class="boton">Ver Resultados</button>
         </section>
     </div>
-       
+    <section class="resultados"></section>
     <!-- Categoria -->
     <div class="contenedor">
-            <h2>Elige el tipo de coche que buscas</h2>
+        <h2>Elige el tipo de coche que buscas</h2>
         <section class="categorias">
-            <div>
+            <div class="categoria">
                 <button class="boton__categoria">
-                    <img src="img/car-hatchback-svgrepo-com.png" alt="turismo">
+                    <img class="icon-tipo" src="img/car-hatchback-svgrepo-com.png" alt="turismo">
                     Turismo
                 </button>
             </div>
-            <div>
+            <div class="categoria">
                 <button class="boton__categoria">
-                    <img src="img/car-suv-svgrepo-com.png" alt="4x4">
+                    <img class="icon-tipo" src="img/car-suv-svgrepo-com.png" alt="4x4">
                     4x4
                 </button>
             </div>
-            <div>
+            <div class="categoria">
                 <button class="boton__categoria">
-                    <img src="img/car-vehicle-transport-svgrepo-com.png" alt="suv">
+                    <img class="icon-tipo" src="img/car-vehicle-transport-svgrepo-com.png" alt="suv">
                     SUV
                 </button>
             </div>
-            <div>
+            <div class="categoria">
                 <button class="boton__categoria">
-                    <img src="img/car-limousine-svgrepo-com.png" alt="berlina">
+                    <img class="icon-tipo" src="img/car-limousine-svgrepo-com.png" alt="berlina">
                     Berlina
                 </button>
             </div>
         </section>
     </div>
-    
+    <section class="resultados-categorias"></section>
     <!-- Imagen Footer -->
-        <section>
-            <img src="img/banner_footer.png" alt="Coche del footer">
-        </section>
+    <section>
+        <img class="banner-footer" src="img/banner_footer.png" alt="Coche del footer">
+    </section>
     <!-- Footer -->
     <div class="contenedor">
         <footer class="footer">
-            <div>
-                <img src="img/Ventacar_logo.png" alt="VentaCar">
+            <div class="logo-div">
+                <img class="logo" src="img/Ventacar_logo.png" alt="VentaCar">
             </div>
             <div>
                 <p>Todos los derechos reservados</p>
             </div>
             <div>
-                <a href="#"><img src="img/facebook.png" alt="Facebook" style="width: 80px; height: auto;"></a>
-                <a href="#"><img src="img/instagram.png" alt="Instagram" style="width: 80px; height: auto;"></a>
-                <a href="#"><img src="img/youtube.png" alt="YouTube" style="width: 80px; height: auto;"></a>
+                <a class="redes-sociales" href="#"><img src="img/facebook.png" alt="Facebook"></a>
+                <a class="redes-sociales" href="#"><img src="img/instagram.png" alt="Instagram"></a>
+                <a class="redes-sociales" href="#"><img src="img/youtube.png" alt="YouTube"></a>
             </div>
         </footer>
     </div>
