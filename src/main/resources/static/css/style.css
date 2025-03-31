@@ -35,6 +35,7 @@ p {
     font-family: var(--fontFamily);
     color: var(--fontColor);
     font-size: 2rem;
+    text-align:center;
 }
 h1 {
     font-size: 4.5rem;
