@@ -18,10 +18,9 @@ public class AuthController {
     }
 
     //Endpoint para sign-up
-    @PostMapping("/signup")
-    public ResponseEntity<String> signUp(@RequestParam String username, @RequestParam String password, @RequestParam(defaultValue = "false") boolean isAdmin) {
+    @PostMapping("/signup")    public ResponseEntity<String> signUp(@RequestParam String email, @RequestParam String password, @RequestParam String nombre, @RequestParam String apellidos, @RequestParam String telefono, @RequestParam String codigoPostal, @RequestParam String fechaNacimiento, @RequestParam(defaultValue = "false") boolean isAdmin) {
         try {
-            authService.registerUser(username, password, isAdmin);
+            authService.registerUser(email, password, nombre, apellidos, telefono, codigoPostal, fechaNacimiento, isAdmin);
             return ResponseEntity.ok("Usuario registrado");
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -31,7 +30,7 @@ public class AuthController {
     //Endpoint para login
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody User user) {
-        User authenticatedUser = authService.authenticateUser(user.getUsername(), user.getPassword());
+        User authenticatedUser = authService.authenticateUser(user.getEmail(), user.getPassword());
         if (authenticatedUser != null) {
             return ResponseEntity.ok("Login correcto");
         }

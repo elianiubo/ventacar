@@ -27,8 +27,8 @@ public class AuthService {
     }
 
     //registrar nuevo user
-    public void registerUser(String username, String password, boolean isAdmin) {
-        if (userRepository.findByUsername(username) != null) {
+    public void registerUser(String email, String password, String nombre, String apellidos, String telefono, String codigoPostal, String fechaNacimiento, boolean isAdmin) {
+        if (userRepository.findByEmail(email) != null) {
             throw new RuntimeException("El usuario ya existe");
         }
 
@@ -46,18 +46,18 @@ public class AuthService {
             throw new RuntimeException("No se pudo asignar ningun rol al usuario");
         }
 
-        User user = new User(username, passwordEncoder.encode(password), roles);
+        User user = new User(email, passwordEncoder.encode(password), nombre, apellidos, telefono, codigoPostal, fechaNacimiento, roles);
         userRepository.save(user);
     }
 
-    //verificar si nombre ya existe
-    public boolean usernameExists(String username) {
-        return userRepository.findByUsername(username) != null;
+    //verificar si email ya existe
+    public boolean emailExists(String email) {
+        return userRepository.findByEmail(email) != null;
     }
 
     //autenticar usuario existente
-    public User authenticateUser(String username, String password) {
-        User user = userRepository.findByUsername(username);
+    public User authenticateUser(String email, String password) {
+        User user = userRepository.findByEmail(email);
         if (user != null && passwordEncoder.matches(password, user.getPassword())) {
             return user; //correcto
         }
