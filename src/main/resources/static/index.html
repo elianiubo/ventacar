@@ -1,114 +1,193 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VentaCar - Venta de Coches</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VentaCar - Venta de Coches</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.css">
 
-<body>
-    <!-- Cabecera -->
-    <header class="header">
-        <div class="contenedor">
-            <div class="barra">
-                <a href="index.html" class="header__logo">
-                    <img class="logo-top-page" src="img/Ventacar_logo.png" alt="VentaCar">
-                </a>
-                <nav class="navegacion">
-                    <a class="navegacion__enlace navegacion__enlace--activo" href="index.html">Inicio</a>
-                    <a class="navegacion__enlace" href="#">Coches</a>
-                    <a class="navegacion__enlace" href="#">Contacto</a>
-                    <a class="navegacion__enlace" href="#">Noticias</a>
-                    <a class="navegacion__enlace" href="#"><i class="fa-regular fa-circle-user"></i></a>
-                </nav>
+    </head>
+
+    <body>
+        <!-- Cabecera -->
+        <header class="header">
+            <div class="contenedor">
+                <div class="barra">
+                    <a href="index.html" class="header__logo">
+                        <img class="logo-top-page" src="img/Ventacar_logo.png" alt="VentaCar">
+                    </a>
+                    <nav class="navegacion">
+                        <a class="navegacion__enlace navegacion__enlace--activo" href="index.html">Inicio</a>
+                        <a class="navegacion__enlace" href="#">Coches</a>
+                        <a class="navegacion__enlace" href="#">Contacto</a>
+                        <a class="navegacion__enlace" href="#">Noticias</a>
+                        <a class="navegacion__enlace" href="login.html"><i class="fa-regular fa-circle-user"></i></a>
+                    </nav>
+                </div>
             </div>
+        </header>
+
+
+        <!-- Foto del banner -->
+
+
+        <section class="banner">
+            <img src="img/banner_naranja.png" alt="Coche del banner">
+        </section>
+        <!-- Ejemplo de contenido exclusivo -->
+        <div id="dashboard-div" style="display: none;">
+            <h2 id="welcome-msg"></h2>
+            <p>Este es el contenido exclusivo para usuarios autenticados.</p>
         </div>
-    </header>
-    <!-- Foto del banner -->
-    <section class="banner">
-        <img src="img/banner_naranja.png" alt="Coche del banner">
-    </section>
-    <!-- Selectores -->
-    <div class="contenedor">
-        <main class="busqueda">
-            <select class="desplegable" id="marca">
-                <option value="">Selecciona una marca</option>
-                <option value="bmw">BMW</option>
-                <option value="audi">Audi</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="ford">Ford</option>
-                <option value="toyota">Toyota</option>
-                <option value="hyundai">Hyundai</option>
-            </select>
+<!--        <div class="contenedor" id="registro-div" >
+            <h2>Registro de cliente</h2>
+            <form id="form-registro" action="#">
+                <div class="form">
 
-            <select class="desplegable" id="tipo">
-                <option value="">Selecciona el tipo de vehículo</option>
-                <option value="4x4">4x4</option>
-                <option value="SUV">SUV</option>
-                <option value="berlina">Berlina</option>
-                <option value="turismo">Turismo</option>
-            </select>
 
-            <select class="desplegable" id="precio">
-                <option value="">Selecciona un rango de precios</option>
-                <option value="0-10000">0€ - 10.000€</option>
-                <option value="10000-25000">10.000€ - 25.000€</option>
-                <option value="25000-50000">25.000€ - 50.000€</option>
-                <option value="50000+">+ 50.000</option>
-            </select>
-        </main>
-    </div>
+                    <input class="input-control" name="nombre" placeholder="Nombre" type="text" id="nombre">
+                    <div class="row">
 
-    <!-- Botón de ver resultados -->
-    <div class="contenedor">
-        <section class="boton-busqueda">
-            <button class="boton">Ver Resultados</button>
+                        <input class="input-control" name="pApellido" placeholder="Primer Apellido" type="text"
+                               id="pApellido">
+
+                        <input class="input-control" name="sApellido" placeholder="Segundo Apellido" type="text"
+                               id="sApellido">
+                    </div>
+
+                    <input class="input-control" name="email" placeholder="Email" type="text" id="email-registro">
+
+                    <input class="input-control" name="password" type="password" placeholder="Contraseña"
+                           id="contraseña-registro">
+
+                    <input class="input-control" name="confirm-password" type="password"
+                           placeholder="Confirmar Contraseña" id="confContraseña">
+
+                    <input class="input-control" name="telefono" type="number" placeholder="Teléfono" id="telf">
+
+                    <input class="input-control" name="cPostal" type="number" placeholder="Código Postal" id="cPostal">
+                    <label>Fecha de nacimiento:</label>
+                    <div class="row">
+
+                        <input class="input-date" type="number" name="Bday" id="bDay" placeholder="Día">
+                        <input class="input-date" type="number" name="Bmonth" id="bMonth" placeholder="Mes">
+                        <input class="input-date" type="number" name="bYear" id="bYear" placeholder="Año">
+
+                    </div>
+
+                </div>
+                <div class="botones">
+                    <button class="boto-registre" id="btn-inicio" >Ya estoy registrado</button>
+                    <button class="boto-registre" >Registrarme</button>
+                </div>
+
+
+            </form>
+
+
+        </div>-->
+
+<!--        <div class="contenedor" id="inicio-div" style="display: none;">
+            <section class="banner">
+                <img src="img/banner_naranja.png" alt="Coche del banner">
+            </section>
+            <h2>Registro de cliente</h2>
+            <form id="form-inicio" action="#">
+                <div class="form">
+                    <input class="input-control" name="email" placeholder="Email" type="text" id="email-inicio">
+
+                    <input class="input-control" name="password" type="password" placeholder="Contraseña" id="contraseña-inicio">
+
+                </div>
+                <div class="botones">
+                    <button class="boto-registre" >Registrarme</button>
+                    <button class="boto-registre">Acceder</button>
+                </div>
+            </form>
+        </div>-->
+        <!-- Selectores -->
+        <div class="contenedor">
+            <main class="busqueda">
+                <select class="desplegable" id="marca">
+                    <option value="">Selecciona una marca</option>
+                    <option value="bmw">BMW</option>
+                    <option value="audi">Audi</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="ford">Ford</option>
+                    <option value="toyota">Toyota</option>
+                    <option value="hyundai">Hyundai</option>
+                </select>
+
+                <select class="desplegable" id="tipo">
+                    <option value="">Selecciona el tipo de vehículo</option>
+                    <option value="4x4">4x4</option>
+                    <option value="SUV">SUV</option>
+                    <option value="berlina">Berlina</option>
+                    <option value="turismo">Turismo</option>
+                </select>
+
+                <select class="desplegable" id="precio">
+                    <option value="">Selecciona un rango de precios</option>
+                    <option value="0-10000">0€ - 10.000€</option>
+                    <option value="10000-25000">10.000€ - 25.000€</option>
+                    <option value="25000-50000">25.000€ - 50.000€</option>
+                    <option value="50000+">+ 50.000</option>
+                </select>
+            </main>
+        </div>
+
+        <!-- Botón de ver resultados -->
+        <div class="contenedor">
+            <section class="boton-busqueda">
+                <button class="boton">Ver Resultados</button>
+            </section>
+        </div>
+        <section class="resultados"></section>
+        <!-- Categoria -->
+        <div class="contenedor">
+            <h2>Elige el tipo de coche que buscas</h2>
+            <section class="categorias">
+                <div class="categoria">
+                    <button class="boton__categoria">
+                        <img class="icon-tipo" src="img/car-hatchback-svgrepo-com.png" alt="turismo">
+                        Turismo
+                    </button>
+                </div>
+                <div class="categoria">
+                    <button class="boton__categoria">
+                        <img class="icon-tipo" src="img/car-suv-svgrepo-com.png" alt="4x4">
+                        4x4
+                    </button>
+                </div>
+                <div class="categoria">
+                    <button class="boton__categoria">
+                        <img class="icon-tipo" src="img/car-vehicle-transport-svgrepo-com.png" alt="suv">
+                        SUV
+                    </button>
+                </div>
+                <div class="categoria">
+                    <button class="boton__categoria">
+                        <img class="icon-tipo" src="img/car-limousine-svgrepo-com.png" alt="berlina">
+                        Berlina
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <section class="resultados-categorias"></section>
+
+        <!-- Imagen Footer -->
+        <section>
+            <img class="banner-footer" src="img/banner_footer.png" alt="Coche del footer">
         </section>
     </div>
-    <section class="resultados"></section>
-    <!-- Categoria -->
-    <div class="contenedor">
-        <h2>Elige el tipo de coche que buscas</h2>
-        <section class="categorias">
-            <div class="categoria">
-                <button class="boton__categoria">
-                    <img class="icon-tipo" src="img/car-hatchback-svgrepo-com.png" alt="turismo">
-                    Turismo
-                </button>
-            </div>
-            <div class="categoria">
-                <button class="boton__categoria">
-                    <img class="icon-tipo" src="img/car-suv-svgrepo-com.png" alt="4x4">
-                    4x4
-                </button>
-            </div>
-            <div class="categoria">
-                <button class="boton__categoria">
-                    <img class="icon-tipo" src="img/car-vehicle-transport-svgrepo-com.png" alt="suv">
-                    SUV
-                </button>
-            </div>
-            <div class="categoria">
-                <button class="boton__categoria">
-                    <img class="icon-tipo" src="img/car-limousine-svgrepo-com.png" alt="berlina">
-                    Berlina
-                </button>
-            </div>
-        </section>
-    </div>
-    <section class="resultados-categorias"></section>
-    <!-- Imagen Footer -->
-    <section>
-        <img class="banner-footer" src="img/banner_footer.png" alt="Coche del footer">
-    </section>
+
     <!-- Footer -->
     <div class="contenedor">
         <footer class="footer">
@@ -125,5 +204,7 @@
             </div>
         </footer>
     </div>
+    <script src="js/script.js"></script>
 </body>
+
 </html>

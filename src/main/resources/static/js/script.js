@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Evento para buscar con los filtros
     btnBuscar.addEventListener("click", () => realizarBusqueda());
-    
+
     // Evento para los 4 botones de tipo
     categoriaButtons.forEach(button => {
         button.addEventListener("click", function () {
