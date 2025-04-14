@@ -13,14 +13,16 @@ public class Vehiculo {
     private String marca;
     private String tipo;
     private Integer precio;
+    private String imagen;
 
     public Vehiculo() {
     }
 
-    public Vehiculo(String marca, String tipo, Integer precio) {
+    public Vehiculo(String marca, String tipo, Integer precio, String imagen) {
         this.marca = marca;
         this.tipo = tipo;
         this.precio = precio;
+        this.imagen = imagen;
     }
 
     public Long getId() {
@@ -53,5 +55,12 @@ public class Vehiculo {
 
     public void setPrecio(Integer precio) {
         this.precio = precio;
+    }
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }
