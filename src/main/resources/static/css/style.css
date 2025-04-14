@@ -1,3 +1,45 @@
+/** Página de Resultados**/
+.vehiculo {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 4rem;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.vehiculo img.imagen-coche {
+    width: 100%;
+    height: auto;
+    max-height: 120px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+.boton-ver-coche {
+    background-color: var(--primary);
+    color: var(--fontColor);
+    font-family: var(--fontFamily);
+    padding: 1.5rem 2.5rem;
+    border: 0.1rem solid var(--fontColor);
+    border-radius: 2rem;
+    font-size: 1.6rem;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+.boton-ver-coche:hover {
+    background-color: var(--secondary);
+    transition: background-color 0.5s ease-in-out;
+}
+
 /** Variables globals **/
 :root {
     --fontFamily: "Quicksand", sans-serif;
@@ -35,7 +77,6 @@ p {
     font-family: var(--fontFamily);
     color: var(--fontColor);
     font-size: 2rem;
-    text-align:center;
 }
 h1 {
     font-size: 4.5rem;

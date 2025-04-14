@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
+        window.location.href = `resultados.html?${params.toString()}`;
         let fullUrl = params.toString() ? `${url}?${params.toString()}` : url;
         console.log("Buscando en:", fullUrl);
         ejecutarBusqueda(fullUrl, ".resultados");
@@ -45,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let url = `http://localhost:8080/api/vehiculos/buscar?tipo=${tipo}`;
         console.log("Buscando por categoría en:", url);
         ejecutarBusqueda(url, ".resultados-categorias");
+        window.location.href = `resultados.html?tipo=${tipo}`;
     }
 
     // Función para ejecutar la petición y mostrar los resultados
@@ -71,8 +73,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const div = document.createElement("div");
             div.classList.add("vehiculo");
             div.innerHTML = `
-                <h3>${vehiculo.marca} - ${vehiculo.tipo}</h3>
-                <p>Precio: ${new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(vehiculo.precio)}</p>
+            <img src="img/vehiculos/${vehiculo.imagen}" alt="${vehiculo.marca} ${vehiculo.tipo}" class="imagen-coche">
+            <h3>${vehiculo.marca} - ${vehiculo.tipo}</h3>
+            <p>Precio: ${new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(vehiculo.precio)}</p>
             `;
             resultadoDiv.appendChild(div);
         });
