@@ -500,7 +500,7 @@ img {
         color: white;
     }
 
-    /* @media (max-width: 661px) { */
+    @media (max-width: 661px) {
 
         label,
         .a-condiciones {
@@ -530,7 +530,7 @@ img {
             font-size: 0.8rem;
             padding: 0.5rem 0.8rem;
         }
-    /*}*/
+    }
 
     @media (max-width: 435px) {
         .form input {
