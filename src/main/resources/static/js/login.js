@@ -194,7 +194,4 @@ document.addEventListener("DOMContentLoaded", function () {
 			})
 	});
 
-	//falta haces comprovaciones de erroe en corroe no existe o contraseña
-	//falta registrar usuario en BD
-
 });
