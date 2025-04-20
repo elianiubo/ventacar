@@ -137,12 +137,14 @@ document.addEventListener("DOMContentLoaded", function () {
 	const btnRegistrarme = document.getElementById("btn-registrarme");
 	const divRegistro = document.getElementById("registro-div");
 	const divLogin = document.getElementById("login-div");
+	const banner = document.getElementById("banner");
 	//boton Cambia del login al registro
 	btnRegistrarme.addEventListener("click", function (e) {
 		console.log("Clicked")
 		e.preventDefault();
 		divRegistro.style.display = "block";
 		divLogin.style.display = "none";
+		banner.style.display = "none";
 	})
 	//boton cambia del registro al login
 	const btnInicio = document.getElementById("btn-inicio");
@@ -150,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		e.preventDefault();
 		divRegistro.style.display = "none";
 		divLogin.style.display = "block";
+		banner.style.display = "block";
 	})
 
 	/*COMPROBACION DE USUARIO REGISTRADO O NO EN EL LOGIN*/
