@@ -1,4 +1,5 @@
 package com.concesionario.ventacar.Service;
+
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 import org.springframework.stereotype.Service;
@@ -8,30 +9,29 @@ import java.io.IOException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-
 @Service
 public class PdfService {
 
     public void createPdf(String filePath) throws IOException, DocumentException {
-       //File preparation
+        // File preparation
         FileOutputStream file = new FileOutputStream(new File(filePath));
         Document document = new Document();
         PdfWriter.getInstance(document, file);
         document.open();
-        // Image del logo
-        Image image = Image.getInstance("src/main/resources/static/img/Ventacar_logo.png"); // Header Image
-        image.scalePercent(40); // Image width and height
+        // Logo image
+        Image image = Image.getInstance("src/main/resources/static/img/Ventacar_logo.png");
+        image.scalePercent(40);
         image.setAlignment(Element.ALIGN_CENTER);
         document.add(image);
 
-    //direccio IOC
+        // direccio IOC
         String[] direccion = {
                 "Av. del Paral·lel 71 – 73",
                 "Sants-Montjuïc",
                 "08004",
                 "Barcelona, España"
         };
-    //for loop so each address is written in a different line
+        // for loop direccio s'escriu en una linia diferent
         for (String line : direccion) {
             Paragraph p = new Paragraph(line, FontFactory.getFont(FontFactory.HELVETICA, 10));
             p.setAlignment(Element.ALIGN_RIGHT);
@@ -40,16 +40,16 @@ public class PdfService {
         document.add(Chunk.NEWLINE);
 
         Paragraph invoiceTitle = new Paragraph("Factura", FontFactory.getFont(FontFactory.HELVETICA_BOLD, 20));
-       //gives space to next values
+        // gives space to next values
         invoiceTitle.setSpacingBefore(20);
         invoiceTitle.setSpacingAfter(10);
         document.add(invoiceTitle);
 
-// Invoice table 2 columns with label and value
-        //para parte de la info
+        // Invoice table 2 columns with label and value
+        // para parte de la info
         PdfPTable infoTable = new PdfPTable(2);
         infoTable.setWidthPercentage(100);
-        infoTable.setWidths(new int[]{1, 2});
+        infoTable.setWidths(new int[] { 1, 2 });
 
         addInfoCell(infoTable, "Factura Numero:");
         addInfoCell(infoTable, "F01", true);
@@ -57,34 +57,34 @@ public class PdfService {
         addInfoCell(infoTable, "Fecha:");
         addInfoCell(infoTable, formaterDate());
         addInfoCell(infoTable, "Nombre:");
-        /*addInfoCell(infoTable, "Elia Niubo Burgos");*/
+        /* addInfoCell(infoTable, "Elia Niubo Burgos"); */
 
         addInfoCell(infoTable, "Correo:");
-        /* addInfoCell(infoTable, "elia.niubo@gmail.com");*/
+        /* addInfoCell(infoTable, "elia.nibu@gmail.com"); */
 
         document.add(infoTable);
 
         document.add(Chunk.NEWLINE);
 
-//Table for product details price etc
+        // Table for product details price etc
         PdfPTable productoTable = new PdfPTable(4);
         productoTable.setSpacingBefore(10);
         productoTable.setSpacingAfter(10);
         productoTable.setWidthPercentage(100);
-        productoTable.setWidths(new float[]{8, 4, 4, 6});
+        productoTable.setWidths(new float[] { 8, 4, 4, 6 });
 
-        //Invoice values
+        // Invoice values
         productoTable.addCell(getHeaderCell("Articulo"));
         productoTable.addCell(getHeaderCell("Cantidad"));
         productoTable.addCell(getHeaderCell("Vat"));
         productoTable.addCell(getHeaderCell("Precio"));
-        //variables que reemplazare por dinamicas
+        // variables que se reemplazaran por valores de la BD
         String coche = "Mini Turismo";
         int cantidad = 1;
         int precio = 15000;
-        double vat= 21.0;
+        double vat = 21.0;
         int total = precio * cantidad;
-        double precioSinIva= precio / 1.21;
+        double precioSinIva = precio / 1.21;
         double vatValor = total - precioSinIva;
         int intVatValor = (int) vatValor;
         int intPrecioSinIva = (int) precioSinIva;
@@ -100,11 +100,11 @@ public class PdfService {
         // Resumen de totales
         Paragraph exVAT = new Paragraph("Precio (Excl. VAT):    € " + intPrecioSinIva,
                 FontFactory.getFont(FontFactory.HELVETICA, 10));
-        Paragraph vatLine = new Paragraph("VAT (21%):                  € "+ intVatValor,
+        Paragraph vatLine = new Paragraph("VAT (21%):                  € " + intVatValor,
                 FontFactory.getFont(FontFactory.HELVETICA, 10));
         Paragraph totalIncl = new Paragraph("Total (Incl. VAT):        € " + total,
                 FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12));
-    //se posiciona a la izquierda
+        // se posiciona a la izquierda
         exVAT.setAlignment(Element.ALIGN_LEFT);
         vatLine.setAlignment(Element.ALIGN_LEFT);
         totalIncl.setAlignment(Element.ALIGN_LEFT);
@@ -113,8 +113,9 @@ public class PdfService {
         document.add(vatLine);
         document.add(totalIncl);
 
-        //footer
-        Paragraph footerText = new Paragraph("Muchas gracias por comprar con nosotros", FontFactory.getFont(FontFactory.HELVETICA,10,BaseColor.LIGHT_GRAY));
+        // footer
+        Paragraph footerText = new Paragraph("Muchas gracias por comprar con nosotros",
+                FontFactory.getFont(FontFactory.HELVETICA, 10, BaseColor.LIGHT_GRAY));
         footerText.setSpacingBefore(100);
         footerText.setAlignment(Element.ALIGN_CENTER);
         document.add(footerText);
@@ -123,11 +124,12 @@ public class PdfService {
         System.out.println("PDF se ha creado");
 
     }
-//adds info into the cell
+
     private void addInfoCell(PdfPTable table, String text) {
         addInfoCell(table, text, false);
     }
 
+    // table info para la factura
     private void addInfoCell(PdfPTable table, String text, boolean bold) {
         Font font = bold
                 ? FontFactory.getFont(FontFactory.HELVETICA_BOLD, 10)
@@ -137,12 +139,16 @@ public class PdfService {
         cell.setPadding(5);
         table.addCell(cell);
     }
+
+    // tabla header de la factura, cantidad, precio, vat
     private PdfPCell getHeaderCell(String text) {
         PdfPCell cell = new PdfPCell(new Phrase(text, FontFactory.getFont(FontFactory.HELVETICA_BOLD, 10)));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         cell.setPadding(5f);
         return cell;
     }
+
+    // tabla de la factura con los valores respectivos
     private PdfPCell getNormalCell(String text) {
         PdfPCell cell = new PdfPCell(new Phrase(text, FontFactory.getFont(FontFactory.HELVETICA, 10)));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -150,8 +156,8 @@ public class PdfService {
 
         return cell;
     }
-//it formattes the date
-    //it makes the date readable
+
+    // formatea la fecha de la factura
     private String formaterDate() {
         Date date = new Date();
 
