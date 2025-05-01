@@ -27,7 +27,7 @@ public class SecurityConfig {
                                 "/img/**",
                                 "/favicon.ico"
                         ).permitAll()
-                        .requestMatchers("/api/auth/signup", "/api/auth/login", "/api/vehiculos/buscar").permitAll()
+                        .requestMatchers("/api/auth/signup", "/api/auth/login", "/api/vehiculos/buscar", "/api/pdf/generate").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/vehiculos/buscarAutenticado").hasAnyRole("USER", "ADMIN")
                         .anyRequest().authenticated()
