@@ -21,12 +21,10 @@ public class PdfController {
     @GetMapping("/generate")
     public String generatePdf() {
         try {
-
-            pdfService.createPdf("src/main/resources/static/pdf/Factura.pdf");
-            return "PDF generado con exito";
-        }  catch (IOException | DocumentException e) {
-
-        return "Error generating PDF: " + e.getMessage();
+            pdfService.createPdf("Elia Niubo", "Mini Turismo", "2025-05-06", 15000);
+            return "PDF generado con éxito";
+        } catch (IOException | DocumentException e) {
+            return "Error generando el PDF: " + e.getMessage();
         }
     }
 }

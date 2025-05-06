@@ -12,9 +12,10 @@ import java.text.SimpleDateFormat;
 @Service
 public class PdfService {
 
-    public void createPdf(String filePath) throws IOException, DocumentException {
+    public File createPdf(String emailCliente, String vehiculo, String fechaReserva, int precio) throws IOException, DocumentException {
+        File tempFile = File.createTempFile("factura_", ".pdf");
         // File preparation
-        FileOutputStream file = new FileOutputStream(new File(filePath));
+        FileOutputStream file = new FileOutputStream(tempFile);
         Document document = new Document();
         PdfWriter.getInstance(document, file);
         document.open();
@@ -81,7 +82,6 @@ public class PdfService {
         // variables que se reemplazaran por valores de la BD
         String coche = "Mini Turismo";
         int cantidad = 1;
-        int precio = 15000;
         double vat = 21.0;
         int total = precio * cantidad;
         double precioSinIva = precio / 1.21;
@@ -89,7 +89,7 @@ public class PdfService {
         int intVatValor = (int) vatValor;
         int intPrecioSinIva = (int) precioSinIva;
 
-        productoTable.addCell(getNormalCell(coche));
+        productoTable.addCell(getNormalCell(vehiculo));
         productoTable.addCell(getNormalCell(String.valueOf(cantidad)));
         productoTable.addCell(getNormalCell("21%"));
         productoTable.addCell(getNormalCell("€ " + total));
@@ -122,6 +122,8 @@ public class PdfService {
         document.close();
         file.close();
         System.out.println("PDF se ha creado");
+
+        return tempFile;
 
     }
 
@@ -166,5 +168,6 @@ public class PdfService {
 
         return formattedDate;
     }
+
 
 }

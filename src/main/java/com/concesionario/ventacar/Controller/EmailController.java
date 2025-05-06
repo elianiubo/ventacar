@@ -1,45 +1,48 @@
 package com.concesionario.ventacar.Controller;
 
 import com.concesionario.ventacar.Service.EmailService;
+import com.itextpdf.text.DocumentException;
 import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.mail.MessagingException;
-import jakarta.mail.internet.MimeMessage;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/email")
+@RequestMapping("/api/email")
 public class EmailController {
 
     @Autowired
     private EmailService emailService;
 
+
     @PostMapping("/confirmacion")
     public ResponseEntity<String> enviarCorreoConfirmacion(
             @RequestParam String destinatario,
-            @RequestParam String detalles,
-            @RequestParam String rutaPdf) {
+            @RequestParam String vehiculo,
+            @RequestParam int precio) {
         try {
-            emailService.enviarCorreoConfirmacion(destinatario, detalles, rutaPdf);
+            emailService.enviarCorreoConfirmacion(destinatario, vehiculo, precio);
             return ResponseEntity.ok("Correo de confirmación enviado.");
-        } catch (MessagingException e) {
-            return ResponseEntity.status(500). body("Error al enviar el correo: " + e.getMessage());
+        } catch (MessagingException | IOException | DocumentException e) {
+            return ResponseEntity.status(500).body("Error al enviar el correo de confirmación: " + e.getMessage());
         }
     }
+
 
     @PostMapping("/reserva")
     public ResponseEntity<String> enviarCorreoReserva(
             @RequestParam String destinatario,
             @RequestParam String vehiculo,
-            @RequestParam String fecha) {
+            @RequestParam String fechaReserva,
+            @RequestParam int precio) {
         try {
-            emailService.enviarCorreoReserva(destinatario, vehiculo, fecha);
+            emailService.enviarCorreoReserva(destinatario, vehiculo, fechaReserva, precio);
             return ResponseEntity.ok("Correo de reserva enviado.");
-        } catch (MessagingException e) {
+        } catch (MessagingException | IOException | DocumentException e) {
             return ResponseEntity.status(500).body("Error al enviar el correo de reserva: " + e.getMessage());
         }
     }
 }
+
