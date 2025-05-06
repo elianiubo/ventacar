@@ -24,7 +24,7 @@ public class EmailService {
 
 
     public void enviarCorreoConfirmacion(String destinatario, String vehiculo, int precio) throws MessagingException, IOException, DocumentException {
-        File pdfFile = pdfService.createPdf(destinatario, vehiculo, String.valueOf(1), precio); // Pasamos los valores correctos
+        File pdfFile = pdfService.createPdf(destinatario, vehiculo, String.valueOf(1), precio); 
 
         MimeMessage mensaje = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mensaje, true);
