@@ -3,6 +3,7 @@ package com.concesionario.ventacar.Service;
 import com.itextpdf.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import jakarta.mail.MessagingException;
@@ -12,6 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
 
 @Service
 public class EmailService {
@@ -24,7 +26,8 @@ public class EmailService {
 
 
     public void enviarCorreoConfirmacion(String destinatario, String vehiculo, int precio) throws MessagingException, IOException, DocumentException {
-        File pdfFile = pdfService.createPdf(destinatario, vehiculo, String.valueOf(1), precio); // Pasamos los valores correctos
+        String fecha = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        File pdfFile = pdfService.createPdf(destinatario, vehiculo, fecha, precio);
 
         MimeMessage mensaje = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mensaje, true);
@@ -32,7 +35,7 @@ public class EmailService {
         helper.setTo(destinatario);
         helper.setSubject("Confirmación de la compra");
         helper.setText("Gracias por realizar la compra de su vehículo. Aquí tiene los detalles:\n\n" +
-                "Vehículo: " + vehiculo + "\n" + "Precio: " + precio + "\n");
+                "Vehículo: " + vehiculo + "\n" + "Precio: " + precio + "\n" + "Fecha: " + fecha + "\n");
 
 
         helper.addAttachment("Factura.pdf", pdfFile);
@@ -47,7 +50,7 @@ public class EmailService {
         File pdfFile = pdfService.createPdf(destinatario, vehiculo, fechaReserva, precio);
 
         MimeMessage mensaje = javaMailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(mensaje, false);
+        MimeMessageHelper helper = new MimeMessageHelper(mensaje, true);
 
         helper.setTo(destinatario);
         helper.setSubject("Vehículo reservado");

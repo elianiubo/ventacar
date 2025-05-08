@@ -61,7 +61,7 @@ public class PdfService {
         /* addInfoCell(infoTable, "Elia Niubo Burgos"); */
 
         addInfoCell(infoTable, "Correo:");
-        /* addInfoCell(infoTable, "elia.nibu@gmail.com"); */
+        /* addInfoCell(infoTable, "prueba@example.com"); */
 
         document.add(infoTable);
 
