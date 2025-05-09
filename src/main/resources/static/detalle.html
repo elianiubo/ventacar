@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>VentaCar - Venta de Coches</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+<!-- Cabecera -->
+<header class="header">
+    <div class="contenedor">
+
+        <div class="barra">
+            <a class="header__logo" href="index.html">
+                <img alt="VentaCar" class="logo-top-page" src="img/Ventacar_logo.png">
+            </a>
+            <nav class="navegacion">
+                <a class="navegacion__enlace" href="index.html">Inicio</a>
+                <a class="navegacion__enlace" href="resultados.html">Coches</a>
+                <a class="navegacion__enlace" href="#">Contacto</a>
+                <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+                <a class="navegacion__enlace" href="login.html"><i class="fa-regular fa-circle-user"></i></a>
+            </nav>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="contenedor">
+        <img id="imagen__vehiculo" src="" alt="Vehículo">
+        <div class="descripcion">
+            <h2 id="marca__vehiculo">Cargando información</h2>
+            <h2 id="modelo__vehiculo">Cargando información</h2>
+            <p id="descripcion__vehiculo">Cargando información</p>
+        </div>
+        <div class="botones">
+            <button class="boton" onclick="accion('reservar')">Reservar</button>
+            <button class="boton" onclick="accion('comprar')">Comprar</button>
+        </div>
+    </div>
+</main>
+
+<!-- Imagen Footer -->
+<section>
+    <img alt="Coche del footer" class="banner-footer" src="img/banner_footer.png">
+</section>
+<!-- Footer -->
+<div class="contenedor">
+    <footer class="footer">
+        <div class="logo-div">
+            <img alt="VentaCar" class="logo" src="img/Ventacar_logo.png">
+        </div>
+        <div>
+            <p>Todos los derechos reservados</p>
+        </div>
+        <div>
+            <a class="redes-sociales" href="#"><img alt="Facebook" src="img/facebook.png"></a>
+            <a class="redes-sociales" href="#"><img alt="Instagram" src="img/instagram.png"></a>
+            <a class="redes-sociales" href="#"><img alt="YouTube" src="img/youtube.png"></a>
+        </div>
+    </footer>
+</div>
+<script src="js/detalle.js"></script>
+</body>
+
+</html>
