@@ -20,23 +20,23 @@ Enviaments de correus amb factura integrada tan per compra com per reserves de c
 
 ## **Tecnologies i llenguatges de programació**
 
-Version: JDK22, Jakarta EE 9
+*Version*: JDK22, Jakarta EE 9
 
-Frontend: HTML, CSS, JavaScript
+*Frontend*: HTML, CSS, JavaScript
 
-Backend: Java, Spring Boot
+*Backend*: Java, Spring Boot
 
-Bases de dades: PostgreSQL
+*Bases de dades*: PostgreSQL
 
-Serveis web: RESTful API
+*Serveis web*: RESTful API
 
-Servidor web: Tomcat 10.1
+*Servidor web*: Tomcat 10.1
 
-Editor: IntelliJ IDEA
+*Editor*: IntelliJ IDEA
 
-Seguretat:Spring Security(roles User i Admin)
+*Seguretat*:Spring Security(roles User i Admin)
 
-Pdf i correu: Itext i mailtrap
+*Pdf i correu*: Itext i mailtrap
 
 
 ## **Diseny de plantilles UI**
@@ -50,7 +50,9 @@ Interfas dividida entre: index.html, login.html, resultats.html, nosatres.ht,l i
 
 Taules: roles,user_roles, users, vehiculos
 
-Columnes de cada taula roles: id,name
+### Columnes de cada taula:
+
+roles: id,name
 
 user_roles: user_id, role_id
 
