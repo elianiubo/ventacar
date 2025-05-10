@@ -70,7 +70,7 @@ vehiculos: id,marca,tipo,precio,imagen,descripcion
 - GET /api/vehículos/tipo{tipo}
 - GET /api/vehículos/precio
 
-## **Documentacio del coodi font Comentaris a JavaDoc**
+## **Documentacio del codi font i Comentaris JavaDoc**
 
 Estructura organitzada per (Config, Model, Controller, Service, Repository)
 
