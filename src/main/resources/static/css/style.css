@@ -69,7 +69,7 @@ body {
 
 section {
     padding-top: 5rem;
-    paddin-bottom: 5rem;
+    padding-bottom: 5rem;
 }
 
 .contenedor {
@@ -721,4 +721,28 @@ small {
     .testimonio p {
         font-size: 1.6rem;
     }
+}
+
+/** Página de Contacto**/
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+}
+
+.formulario-contacto .input-control {
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    font-size: 1.6rem;
+    font-family: var(--fontFamily);
+    resize: none;
+}
+
+.formulario-contacto .input-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 5px rgba(255, 173, 51, 0.5);
 }

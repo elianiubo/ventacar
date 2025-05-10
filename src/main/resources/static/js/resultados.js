@@ -20,26 +20,32 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch(fullUrl)
         .then(res => res.json())
         .then(data => {
-            if (data.length === 0) {
+            const reservas = JSON.parse(localStorage.getItem("vehiculosReservados") || "{}");
+            const ahora = Date.now();
+
+            const resultadosFiltrados = data.filter(vehiculo => {
+                const expira = reservas[vehiculo.id];
+                return !expira || ahora > expira;
+            });
+
+            if (resultadosFiltrados.length === 0) {
                 contenedor.innerHTML = "<p>No se encontraron vehículos.</p>";
                 return;
             }
 
-            data.forEach(vehiculo => {
-                console.log(vehiculo);
+            resultadosFiltrados.forEach(vehiculo => {
                 const div = document.createElement("div");
                 div.classList.add("vehiculo");
                 div.innerHTML = `
-                <img src="img/vehiculos/${vehiculo.imagen}" alt="${vehiculo.marca} ${vehiculo.tipo}" class="imagen-coche">
-                <h3>${vehiculo.marca} - ${vehiculo.tipo}</h3>
-                <p>Precio: ${new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(vehiculo.precio)}</p>
-                <button class="boton-ver-coche" data-id="${vehiculo.id}">Ver Coche</button>
+                    <img src="img/vehiculos/${vehiculo.imagen}" alt="${vehiculo.marca} ${vehiculo.tipo}" class="imagen-coche">
+                    <h3>${vehiculo.marca} - ${vehiculo.tipo}</h3>
+                    <p>Precio: ${new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR" }).format(vehiculo.precio)}</p>
+                    <button class="boton-ver-coche" data-id="${vehiculo.id}">Ver Coche</button>
                 `;
-
-                 div.querySelector(".boton-ver-coche").addEventListener("click", function () {
-                                     const id = this.getAttribute("data-id");
-                                     window.location.href = `detalle.html?id=${id}`;
-                 });
+                div.querySelector(".boton-ver-coche").addEventListener("click", function () {
+                    const id = this.getAttribute("data-id");
+                    window.location.href = `detalle.html?id=${id}`;
+                });
 
                 contenedor.appendChild(div);
             });

@@ -27,7 +27,7 @@
                 <nav class="navegacion">
                     <a class="navegacion__enlace" href="index.html">Inicio</a>
                     <a class="navegacion__enlace" href="resultados.html">Coches</a>
-                    <a class="navegacion__enlace" href="#">Contacto</a>
+                    <a class="navegacion__enlace" href="contacto.html">Contacto</a>
                     <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
                     <a class="navegacion__enlace navegacion__enlace--activo" href="login.html"><i class="fa-regular fa-circle-user"></i></a>
                 </nav>
@@ -122,21 +122,20 @@
     </section>
      <div class="contenedor" id="login-div">
         <h2>Acceso al cliente</h2>
-        <form id="form-inicio" method="post" action="/perform_login">
+        <form id="form-inicio" method="post" action="perform-login">
             <div class="form">
                 <div class="input-group">
-                    <input class="input-control" name="username" placeholder="Email" type="email" id="email-inicio" required>
+                    <input class="input-control" name="email" placeholder="Email" type="text" id="email-inicio">
 
                     <input class="input-control" name="password" type="password" placeholder="Contraseña"
-                        id="contraseña-inicio" required>
+                        id="contraseña-inicio">
                     <small></small>
                 </div>
 
             </div>
             <div class="botones">
                 <button class="boto-registre " id="btn-registrarme">Registrarme</button>
-                <button class="boto-registre" id="btn-login" type="submit">Acceder</button>
-                <button class="boto-registre" id="btn-logout">Cerrar sesión</button>
+                <button class="boto-registre" id="btn-login" type="button">Acceder</button>
             </div>
 
         </form>

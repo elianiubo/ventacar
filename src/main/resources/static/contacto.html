@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - VentaCar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="contenedor">
+            <div class="barra">
+                <a href="index.html" class="header__logo">
+                    <img class="logo-top-page" src="img/Ventacar_logo.png" alt="VentaCar">
+                </a>
+                <nav class="navegacion">
+                    <a class="navegacion__enlace" href="index.html">Inicio</a>
+                    <a class="navegacion__enlace" href="resultados.html">Coches</a>
+                    <a class="navegacion__enlace navegacion__enlace--activo" href="#">Contacto</a>
+                    <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+                    <a class="navegacion__enlace" href="login.html"><i class="fa-regular fa-circle-user"></i></a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <img src="img/banner_naranja.png" alt="Banner contacto">
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <main class="contenedor">
+        <h2>Contáctanos</h2>
+        <p>¿Tienes alguna duda o quieres más información? ¡Estamos aquí para ayudarte!</p>
+
+        <form class="formulario-contacto">
+            <input class="input-control" type="text" name="nombre" placeholder="Tu Nombre" required>
+            <input class="input-control" type="email" name="email" placeholder="Tu Email" required>
+            <input class="input-control" type="tel" name="telefono" placeholder="Tu Teléfono (opcional)">
+            <textarea class="input-control" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            <button type="submit" class="boton">Enviar Mensaje</button>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <section>
+        <img class="banner-footer" src="img/banner_footer.png" alt="Coche del footer">
+    </section>
+
+    <div class="contenedor">
+        <footer class="footer">
+            <div class="logo-div">
+                <img class="logo" src="img/Ventacar_logo.png" alt="VentaCar">
+            </div>
+            <div>
+                <p>Todos los derechos reservados</p>
+            </div>
+            <div>
+                <a class="redes-sociales" href="#"><img src="img/facebook.png" alt="Facebook"></a>
+                <a class="redes-sociales" href="#"><img src="img/instagram.png" alt="Instagram"></a>
+                <a class="redes-sociales" href="#"><img src="img/youtube.png" alt="YouTube"></a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

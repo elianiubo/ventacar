@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 
-	/*MANEJO DE UI ENTRE LOGIN  REGISTRO LOGOUT*/
+	/*MANEJO DE UI ENTRE LOGIN  REGISTRO*/
 
 	//manejo de los botones y cambio entre login y registro
 	const btnRegistrarme = document.getElementById("btn-registrarme");
@@ -155,10 +155,46 @@ document.addEventListener("DOMContentLoaded", function () {
 		banner.style.display = "block";
 	})
 
-    //logout
-    document.getElementById("btn-logout").addEventListener("click", function(e) {
-            e.preventDefault();
-            window.location.href = "/logout";
-    })
+	/*COMPROBACION DE USUARIO REGISTRADO O NO EN EL LOGIN*/
+	//manejo del login coje valores y comprueba si usuario ya registrado e inicia sesión
+	const btnLogin = document.getElementById("btn-login")
+	const formInicio = document.getElementById("form-inicio")
+	const smallMessage = formInicio.querySelector("small");//element to show error
+	btnLogin.addEventListener('click', function (e) {
+		//coje valores y hace el fech de los valores en la BD
+		const emailLogin = document.getElementById("email-inicio").value;
+		const passwordLogin = document.getElementById("contraseña-inicio").value;
+
+		const user = {
+			email: emailLogin,
+			password: passwordLogin
+		};
+		console.log(`${emailLogin} ${passwordLogin}`)
+
+
+		fetch("http://localhost:8080/api/auth/login", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			credentials: "include",
+			body: JSON.stringify(user)
+		})
+			.then(response => {
+				if (!response.ok) {
+					throw new Error("Error en la autenticación");
+				}
+				return response.text();
+			})
+			.then(data => {
+				smallMessage.innerText = ""
+				console.log(data); // Puedes ver "Login correcto" o lo que devuelva tu backend
+				window.location.href = "index.html"; // Redirige a la página principal
+				alert("Has iniciado sessión " + emailLogin)//de momento para saber
+			})
+			.catch(error => {
+				smallMessage.innerText = "Usuario o contraseña incorrectos o no existen";
+				smallMessage.style.color = "red";
+				console.log('Error', error);
+			})
+	});
 
 });
