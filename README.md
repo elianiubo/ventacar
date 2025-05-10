@@ -42,7 +42,7 @@ Enviaments de correus amb factura integrada tan per compra com per reserves de c
 
 ## **Diseny de plantilles UI**
 
-link a diseny figma
+link a diseny figma: https://www.figma.com/design/6uRpn3rJaPPZN0Za9UJrs3/tea3?node-id=0-1&p=f&t=uwbky68QuhGPjc9K-0
 
 Interfas dividida entre: index.html, login.html, resultats.html, nosatres.ht,l i detall.html
 
