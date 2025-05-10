@@ -36,7 +36,8 @@ Enviaments de correus amb factura integrada tan per compra com per reserves de c
 
 *Seguretat*:Spring Security(roles User i Admin)
 
-*Pdf i correu*: Itext i mailtrap
+*Pdf i correu*: Itext i mailtrap. Mailsersend i SMTP (Per a l'enviament de correus als clients
+)
 
 
 ## **Diseny de plantilles UI**
@@ -62,6 +63,12 @@ users:id,apellidos, codigo_postal, email, decha_nacimiento, nombre, password, te
 
 vehiculos: id,marca,tipo,precio,imagen,descripcion
 
+### Endpoints:
+
+- GET /api/vehículos/buscar
+- GET /api/vehículos/marca{marca}
+- GET /api/vehículos/tipo{tipo}
+- GET /api/vehículos/precio
 
 ## **Documentacio del coodi font Comentaris a JavaDoc**
 
