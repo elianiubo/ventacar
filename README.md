@@ -48,6 +48,8 @@ Interfas dividida entre: index.html, login.html, resultats.html, nosatres.ht,l i
 
 ## **Diseny de la BBDD**
 
+![Diagrama de base de datos](https://github.com/elianiubo/ventacar/blob/main/src/main/assets/DBrelational.jpeg?raw=true)
+
 Taules: roles,user_roles, users, vehiculos
 
 ### Columnes de cada taula:
