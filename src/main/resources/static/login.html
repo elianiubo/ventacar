@@ -16,155 +16,155 @@
 </head>
 
 <body>
-    <!-- Cabecera -->
-    <header class="header">
-        <div class="contenedor">
+<!-- Cabecera -->
+<header class="header">
+    <div class="contenedor">
 
-            <div class="barra">
-                <a class="header__logo" href="index.html">
-                    <img alt="VentaCar" class="logo-top-page" src="img/Ventacar_logo.png">
-                </a>
-                <nav class="navegacion">
-                    <a class="navegacion__enlace" href="index.html">Inicio</a>
-                    <a class="navegacion__enlace" href="resultados.html">Coches</a>
-                    <a class="navegacion__enlace" href="contacto.html">Contacto</a>
-                    <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
-                    <a class="navegacion__enlace navegacion__enlace--activo" href="login.html"><i class="fa-regular fa-circle-user"></i></a>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-
-    <!-- Registro Cliente -->
-    <div>
-        <div class="contenedor" id="registro-div" style="display:none">
-            <h2>Registro de cliente</h2>
-            <form id="form-registro" method="post" action="/perform_registro">
-                <div class="form">
-
-
-                    <div class="input-group">
-                        <input class="input-control" name="nombre" placeholder="Nombre" type="text" id="nombre"
-                            required>
-                        <small></small>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-group">
-                            <input class="input-control" name="pApellido" placeholder="Primer Apellido" type="text"
-                                id="pApellido">
-                            <small></small>
-                        </div>
-                        <div class="input-group">
-                            <input class="input-control" name="sApellido" placeholder="Segundo Apellido" type="text"
-                                id="sApellido">
-                            <small></small>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <input class="input-control" name="email" placeholder="Email" type="text" id="email-registro"
-                            required>
-                        <small></small>
-                    </div>
-                    <div class="input-group">
-                        <input class="input-control" name="contraseña" type="password" id="contraseña-registro"
-                            placeholder="Contraseña" required>
-                        <small></small> <!-- Aquí debe ir el mensaje de error -->
-                    </div>
-                    <div class="input-group">
-                        <input class="input-control" name="conf-contraseña" type="password" id="conf-contraseña"
-                            placeholder="Confirmar Contraseña" required>
-                        <small></small> <!-- Aquí debe ir el mensaje de error -->
-                    </div>
-                    <div class="input-group">
-                        <input class="input-control" name="telefono" type="number" placeholder="Teléfono" id="telf">
-                        <small></small>
-                    </div>
-                    <div class="input-group">
-                        <input class="input-control" name="cPostal" type="number" placeholder="Código Postal"
-                            id="c-postal">
-                        <small></small>
-                    </div>
-                    <label>Fecha de nacimiento:</label>
-                    <div class="row">
-
-                        <input class="input-date" type="number" name="Bday" id="bDay" placeholder="Día">
-                        <input class="input-date" type="number" name="Bmonth" id="bMonth" placeholder="Mes">
-                        <input class="input-date" type="number" name="bYear" id="bYear" placeholder="Año">
-
-                    </div>
-                    <div class="row">
-                        <input class="input-aceptar" type="checkbox" id="aceptar" name="aceptar" required>
-                        <label for="aceptar">Acepto las <a href="#" class="a-condiciones">condiciones de uso</a> y la <a
-                                href="#" class="a-condiciones">politica de privacidad</a></label>
-
-
-
-                    </div>
-
-                </div>
-                <div class="botones">
-                    <button class="boto-registre" id="btn-inicio">Ya estoy registrado</button>
-                    <button class="boto-registre" id="btn-registrado" type="submit">Registrarme</button>
-                    <button class="boto-registre" id="btn-logout">Cerrar sesión</button>
-                </div>
-
-
-            </form>
-
-
+        <div class="barra">
+            <a class="header__logo" href="index.html">
+                <img alt="VentaCar" class="logo-top-page" src="img/Ventacar_logo.png">
+            </a>
+            <nav class="navegacion">
+                <a class="navegacion__enlace" href="index.html">Inicio</a>
+                <a class="navegacion__enlace" href="resultados.html">Coches</a>
+                <a class="navegacion__enlace" href="#">Contacto</a>
+                <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+                <a class="navegacion__enlace navegacion__enlace--activo" href="login.html"><i class="fa-regular fa-circle-user"></i></a>
+            </nav>
         </div>
     </div>
-   
-    <section class="banner" id="banner">
-        <img src="img/banner_naranja.png" alt="Coche del banner">
-    </section>
-     <div class="contenedor" id="login-div">
-        <h2>Acceso al cliente</h2>
-        <form id="form-inicio" method="post" action="perform-login">
-            <div class="form">
-                <div class="input-group">
-                    <input class="input-control" name="email" placeholder="Email" type="text" id="email-inicio">
+</header>
 
-                    <input class="input-control" name="password" type="password" placeholder="Contraseña"
-                        id="contraseña-inicio">
+
+<!-- Registro Cliente -->
+<div>
+    <div class="contenedor" id="registro-div" style="display:none">
+        <h2>Registro de cliente</h2>
+        <form id="form-registro" method="post" action="/perform_registro">
+            <div class="form">
+
+
+                <div class="input-group">
+                    <input class="input-control" name="nombre" placeholder="Nombre" type="text" id="nombre"
+                           required>
                     <small></small>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <input class="input-control" name="pApellido" placeholder="Primer Apellido" type="text"
+                               id="pApellido">
+                        <small></small>
+                    </div>
+                    <div class="input-group">
+                        <input class="input-control" name="sApellido" placeholder="Segundo Apellido" type="text"
+                               id="sApellido">
+                        <small></small>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <input class="input-control" name="email" placeholder="Email" type="text" id="email-registro"
+                           required>
+                    <small></small>
+                </div>
+                <div class="input-group">
+                    <input class="input-control" name="contraseña" type="password" id="contraseña-registro"
+                           placeholder="Contraseña" required>
+                    <small></small> <!-- Aquí debe ir el mensaje de error -->
+                </div>
+                <div class="input-group">
+                    <input class="input-control" name="conf-contraseña" type="password" id="conf-contraseña"
+                           placeholder="Confirmar Contraseña" required>
+                    <small></small> <!-- Aquí debe ir el mensaje de error -->
+                </div>
+                <div class="input-group">
+                    <input class="input-control" name="telefono" type="number" placeholder="Teléfono" id="telf">
+                    <small></small>
+                </div>
+                <div class="input-group">
+                    <input class="input-control" name="cPostal" type="number" placeholder="Código Postal"
+                           id="c-postal">
+                    <small></small>
+                </div>
+                <label>Fecha de nacimiento:</label>
+                <div class="row">
+
+                    <input class="input-date" type="number" name="Bday" id="bDay" placeholder="Día">
+                    <input class="input-date" type="number" name="Bmonth" id="bMonth" placeholder="Mes">
+                    <input class="input-date" type="number" name="bYear" id="bYear" placeholder="Año">
+
+                </div>
+                <div class="row">
+                    <input class="input-aceptar" type="checkbox" id="aceptar" name="aceptar" required>
+                    <label for="aceptar">Acepto las <a href="#" class="a-condiciones">condiciones de uso</a> y la <a
+                            href="#" class="a-condiciones">politica de privacidad</a></label>
+
+
+
                 </div>
 
             </div>
             <div class="botones">
-                <button class="boto-registre " id="btn-registrarme">Registrarme</button>
-                <button class="boto-registre" id="btn-login" type="button">Acceder</button>
+                <button class="boto-registre" id="btn-inicio">Ya estoy registrado</button>
+                <button class="boto-registre" id="btn-registrado" type="submit">Registrarme</button>
             </div>
+
 
         </form>
+
+
     </div>
+</div>
+
+<section class="banner" id="banner">
+    <img src="img/banner_naranja.png" alt="Coche del banner">
+</section>
+<div class="contenedor" id="login-div">
+    <h2>Acceso al cliente</h2>
+    <form id="form-inicio" method="post" action="/perform_login">
+        <div class="form">
+            <div class="input-group">
+                <input class="input-control" name="username" placeholder="Email" type="email" id="email-inicio" required>
+
+                <input class="input-control" name="password" type="password" placeholder="Contraseña"
+                       id="contraseña-inicio" required>
+                <small></small>
+            </div>
+
+        </div>
+        <div class="botones">
+            <button class="boto-registre " id="btn-registrarme">Registrarme</button>
+            <button class="boto-registre" id="btn-login" type="submit">Acceder</button>
+            <button class="boto-registre" id="btn-logout">Cerrar sesión</button>
+        </div>
+
+    </form>
+</div>
 
 
 
-    <!-- Imagen Footer -->
-    <section>
-        <img alt="Coche del footer" class="banner-footer" src="img/banner_footer.png">
-    </section>
-    <!-- Footer -->
-    <div class="contenedor">
-        <footer class="footer">
-            <div class="logo-div">
-                <img alt="VentaCar" class="logo" src="img/Ventacar_logo.png">
-            </div>
-            <div>
-                <p>Todos los derechos reservados</p>
-            </div>
-            <div>
-                <a class="redes-sociales" href="#"><img alt="Facebook" src="img/facebook.png"></a>
-                <a class="redes-sociales" href="#"><img alt="Instagram" src="img/instagram.png"></a>
-                <a class="redes-sociales" href="#"><img alt="YouTube" src="img/youtube.png"></a>
-            </div>
-        </footer>
-    </div>
-    <script src="js/login.js"></script>
+<!-- Imagen Footer -->
+<section>
+    <img alt="Coche del footer" class="banner-footer" src="img/banner_footer.png">
+</section>
+<!-- Footer -->
+<div class="contenedor">
+    <footer class="footer">
+        <div class="logo-div">
+            <img alt="VentaCar" class="logo" src="img/Ventacar_logo.png">
+        </div>
+        <div>
+            <p>Todos los derechos reservados</p>
+        </div>
+        <div>
+            <a class="redes-sociales" href="#"><img alt="Facebook" src="img/facebook.png"></a>
+            <a class="redes-sociales" href="#"><img alt="Instagram" src="img/instagram.png"></a>
+            <a class="redes-sociales" href="#"><img alt="YouTube" src="img/youtube.png"></a>
+        </div>
+    </footer>
+</div>
+<script src="js/login.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,9 @@
+/**
+ * Objeto global para almacenar el vehículo actualmente seleccionado.
+ * @type {Object|null}
+ */
+let vehiculoSeleccionado = null;
+
 document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
@@ -7,12 +13,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
+    /**
+     * Obtiene los datos del vehículo por ID desde la API y los muestra en el DOM.
+     */
     fetch(`http://localhost:8080/api/vehiculos/${id}`)
         .then(response => {
             if (!response.ok) throw new Error("Vehículo no encontrado");
             return response.json();
         })
         .then(vehiculo => {
+            vehiculoSeleccionado = vehiculo;
             document.getElementById("imagen__vehiculo").src = `img/vehiculos/${vehiculo.imagen}`;
             document.getElementById("imagen__vehiculo").alt = `${vehiculo.marca} ${vehiculo.tipo}`;
             document.getElementById("marca__vehiculo").textContent = vehiculo.marca;
@@ -24,14 +34,24 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(".descripcion").innerHTML = "<p>Error al cargar el vehículo.</p>";
         });
 });
-//Funcionn para reservar el vehiculo
+
+/**
+ * Marca un vehículo como reservado en localStorage durante 60 segundos.
+ *
+ * @param {string} id - ID del vehículo a reservar.
+ */
 function reservarVehiculo(id) {
     const reservas = JSON.parse(localStorage.getItem("vehiculosReservados") || "{}");
     const ahora = Date.now();
-    reservas[id] = ahora + 60000; 
+    reservas[id] = ahora + 60000; // Reserva válida por 1 minuto
     localStorage.setItem("vehiculosReservados", JSON.stringify(reservas));
 }
 
+/**
+ * Realiza una acción según el tipo ('reservar' o 'comprar') para un vehículo.
+ *
+ * @param {"reservar"|"comprar"} tipo - Tipo de acción a realizar.
+ */
 function accion(tipo) {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
@@ -59,7 +79,7 @@ function accion(tipo) {
                     <label for="direccion" style="font-size: 1.8rem; display: block; margin-bottom: 1rem;">
                         Dirección de facturación:
                     </label>
-                    <input type="text" id="direccion" name="direccion" required
+                    <input type="mail" id="direccion" name="direccion" required
                         style="width: 100%; padding: 1rem; font-size: 1.6rem; border-radius: 0.5rem; border: 1px solid #ccc;">
                     <button id="btn-generar-factura" type="submit" class="boton" style="margin-top: 2rem;">
                         Generar factura
@@ -68,15 +88,45 @@ function accion(tipo) {
             </div>
         `;
         window.scrollTo({ top: 0, behavior: "smooth" });
-        setTimeout(() => {
-            const form = document.getElementById("form-factura");
-            form.addEventListener("submit", (e) => {
-                e.preventDefault();
-                const direccion = document.getElementById("direccion").value.trim();
-                if (direccion) {
-                    alert(`Factura generada para:\n${direccion}`);
+
+        const form = document.getElementById("form-factura");
+
+        /**
+         * Maneja el envío del formulario de compra y realiza la petición para generar la factura.
+         *
+         * @param {Event} e - Evento de envío del formulario.
+         */
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const direccion = document.getElementById("direccion").value.trim();
+            if (!direccion || !vehiculoSeleccionado) {
+                alert("Datos incompletos para generar la factura.");
+                return;
+            }
+
+            try {
+                const body = new URLSearchParams();
+                body.append("vehiculo", `${vehiculoSeleccionado.marca} ${vehiculoSeleccionado.tipo}`);
+                body.append("precio", vehiculoSeleccionado.precio);
+
+                const response = await fetch("http://localhost:8080/api/email/confirmacion", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    body: body.toString()
+                });
+
+                const resultado = await response.text();
+                if (response.ok) {
+                    alert("Factura enviada correctamente al correo.");
+                } else {
+                    alert("Error: " + resultado);
                 }
-            });
-        }, 0);
+            } catch (err) {
+                alert("Error al generar la factura: " + err.message);
+            }
+        });
     }
 }
