@@ -41,8 +41,8 @@ public class EmailService {
     public void enviarCorreoConfirmacion(String vehiculo, int precio)
             throws MessagingException, IOException, DocumentException {
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String destinatario = auth.getName();
+        String destinatario = "ventacar@gmail.com";
+
 
         String fecha = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         File pdfFile = pdfService.createPdf(destinatario, vehiculo, fecha, precio);
